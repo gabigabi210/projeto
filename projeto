@@ -1,0 +1,46 @@
+from JogosDoProjeto import par_ou_impar
+from JogosDoProjeto import jogo_da_memoria
+from JogosDoProjeto import qual_palavra
+from JogosDoProjeto import jogoda_da_velha
+from JogosDoProjeto import pedra_papel_tesoura
+
+
+def menu():
+    print(f'{" MENU DE JOGOS ":~^80}')
+    print(f'{" 1. Jogo de Memória ":<40}', end='')
+    print(f'{" 3. Qual a Palavra? ":>40}')
+    print(f'{" 2. Advinhe o Número ":<40}', end='')
+    print(f'{" 4. Pedra, Papel ou Tesoura ":>40}')
+    print(f'{" 5. Jogo da Velha ":<40}', end='')
+    print('')
+    print(f'{" 0. Sair ":~^80}')
+
+
+
+print('Seja bem vindo! O que você deseja jogar hoje?')
+menu()
+opcao = int(input('Digite o que você deseja jogar: '))
+jogar = True
+
+while jogar:
+    if opcao == 0:
+        jogar = False
+    elif opcao == 1:
+        jogo_da_memoria()
+    elif opcao == 2:
+        par_ou_impar()
+    elif opcao == 3:
+        qual_palavra()
+    elif opcao == 4:
+        pedra_papel_tesoura()
+    elif opcao == 5:
+        jogoda_da_velha()
+    opcao = int(input('''Você deseja jogar novamente?  
+    [1] Sim
+    [2] Não '''))
+    if opcao == 2:
+        print('Obrigado por jogar, volte sempre!')
+        break
+    elif opcao == 1:
+        menu()
+        opcao = int(input('Digite o que você deseja jogar: '))
