@@ -1,0 +1,491 @@
+import random
+from time import sleep
+from random import randint
+import emoji
+def par_ou_impar():
+    print('''===========================================
+    ========JOGO DE DESCOBRIR O NÚMERO=========
+    ===========================================''')
+    dificuldade = str(input('Qual dificuldade vc quer jogar? [facil/medio/dificil]')).lower().strip()
+    if dificuldade == 'facil':
+        na = random.randint(0, 10)
+        nome = input('Qual seu nome?')
+        r = str(input('Você quer jogar?(S/N)')).upper().strip()[0]
+        tentativas = 0
+        if r == 'S':
+            print(f'Seja bem vindo,{nome}, vamos jogar')
+            n = int(input(f'Escreva um número:'))
+            while True:
+                tentativas += 1
+                if n > na:
+                    print('Seu valor está muito alto')
+                    n = int(input(f'\033[31mTente outra vez:'))
+                elif n < na:
+                    print('Seu valor está muito baixo')
+                    n = int(input(f'Tente outra vez:'))
+                else:
+                    print(emoji.emojize(
+                        f'\033[34mParabéns :partying_face::partying_face: você conseguiu acerta o numero: {na} em {tentativas} tentativas'))
+                    break
+        else:
+            print(emoji.emojize('Na proxima jogamos :sad_but_relieved_face:'))
+    if dificuldade == 'medio':
+        na = random.randint(10, 100)
+        nome = input('Qual seu nome?')
+        r = str(input('Você quer jogar?(S/N)')).upper().strip()[0]
+        tentativas = 0
+        if r == 'S':
+            print(f'Seja bem vindo,{nome}, vamos jogar')
+            n = int(input(f'Escreva um número:'))
+            while True:
+                tentativas += 1
+                if n > na:
+                    print('Seu valor está muito alto')
+                    n = int(input(f'Tente outra vez:'))
+                elif n < na:
+                    print('Seu valor está muito baixo')
+                    n = int(input(f'Tente outra vez:'))
+                else:
+                    print(emoji.emojize(
+                        f'\033[34mParabéns :partying_face::partying_face: você conseguiu acerta o numero: {na} em {tentativas} tentativas'))
+                    break
+        else:
+            print(emoji.emojize('Na proxima jogamos :sad_but_relieved_face:'))
+    elif dificuldade == 'dificil':
+        na = random.randint(0, 1000)
+        nome = input('Qual seu nome?')
+        r = str(input('Você quer jogar?(S/N)')).upper().strip()[0]
+        tentativas = 0
+        if r == 'S':
+            print(f'Seja bem vindo,{nome}, vamos jogar')
+            n = int(input(f'Escreva um número:'))
+            while True:
+                tentativas += 1
+                if n > na:
+                    print('Seu valor está muito alto')
+                    n = int(input(f'Tente outra vez:'))
+                elif n < na:
+                    print('Seu valor está muito baixo')
+                    n = int(input(f'Tente outra vez:'))
+                else:
+                    print(emoji.emojize(
+                        f'\033[34mParabéns :partying_face::partying_face: você conseguiu acerta o numero: {na} em {tentativas} tentativas'))
+                    break
+        else:
+            print(emoji.emojize('Na proxima jogamos :sad_but_relieved_face:'))
+def pedra_papel_tesoura():
+    print('''=============================================
+    =========PEDRA, PAPEL OU TESOURA=============
+    =============================================''')
+    print('''[0] para jogar contra um computador\n[1] para jogar um amigo''')
+    tipo_de_jogo = input('Qual modo de jogo vc deseja jogar?')
+    if tipo_de_jogo == '0':
+        itens = ('pedra', 'papel', 'tesoura')
+        computador = randint(0, 2)
+        nome = input('Qual o nome do jogador? ')
+        print('''Escolha dentre as opções abaixo:
+            [ 0 ] Pedra
+            [ 1 ] Papel
+            [ 2 ] Tesoura''')
+        jogador = int(input(f'Qual a sua jogada,{nome}? '))
+        print(f'a jogada de {nome} foi {itens[jogador]}')
+        print(f'a jogada do computador foi {itens[computador]}')
+        if computador == 0:
+            if jogador == 0:
+                print('EMPATE')
+            elif jogador == 1:
+                print('\033[31mJOGADOR VENCE')
+            elif jogador == 2:
+                print('\033[37mCOMPUTADOR VENCE')
+            else:
+                print('JOGADA INVALIDA')
+        elif computador == 1:
+            if jogador == 0:
+                print('\033[37mCOMPUTADOR VENCE')
+            elif jogador == 1:
+                print('EMPATE')
+            elif jogador == 2:
+                print('\033[31mJOGADOR VENCE')
+            else:
+                print('JOGADA INVALIDA ')
+        elif computador == 2:
+            if jogador == 0:
+                print('\033[31mJOGADOR VENCE')
+            elif jogador == 1:
+                print('\033[37mCOMPUTADOR VENCE')
+            elif jogador == 2:
+                print('EMPATE')
+        else:
+            print('JOGADA INVALIDA')
+    elif tipo_de_jogo == '1':
+        itens = ('pedra', 'papel', 'tesoura')
+        nome_jogador1 = input('Qual o nome do jogador1? ')
+        nome_jogador2 = input('Qual seu nome jogador 2?')
+        print('''Escolha dentre as opções abaixo:
+                    [ 0 ] Pedra
+                    [ 1 ] Papel
+                    [ 2 ] Tesoura''')
+        jogador1 = int(input(f'Qual a sua jogada,{nome_jogador1}? '))
+        print("\n" * 40)
+        jogador2 = int(input(f'Qual a sua jogada,{nome_jogador2}? '))
+        print(f'a jogada de {jogador1} foi {itens[jogador1]}')
+        print(f'a jogada do {jogador2} foi {itens[jogador2]}')
+        if jogador2 == 0:
+            if jogador1 == 0:
+                print('EMPATE')
+            elif jogador1 == 1:
+                print('\033[31mJOGADOR1 VENCE')
+            elif jogador1 == 2:
+                print('\033[37mJOGADOR2 VENCE')
+            else:
+                print('JOGADA INVALIDA')
+        elif jogador2 == 1:
+            if jogador1 == 0:
+                print('\033[37mJOGADOR2 VENCE')
+            elif jogador1 == 1:
+                print('EMPATE')
+            elif jogador1 == 2:
+                print('\033[31mJOGADOR1 VENCE')
+            else:
+                print('JOGADA INVALIDA ')
+        elif jogador2 == 2:
+            if jogador1 == 0:
+                print('\033[31mJOGADOR1 VENCE')
+            elif jogador1 == 1:
+                print('\033[37mJOGADOR2 VENCE')
+            elif jogador1 == 2:
+                print('EMPATE')
+        else:
+            print('JOGADA INVALIDA')
+
+def jogoda_da_velha():
+    def menu_inicio():
+        cont = 1
+        while cont == 1:
+            print(f'Jogo da velha')
+            print('')
+            comecar = input('Você quer começar a jogar?[S/N]\n').upper()
+            if comecar == 'S':
+                cont -= 1
+                opcao = input('Escolha um modo de jogo:\nPVP[A] ou PVE[B]?\n').upper()
+                if opcao == 'A':
+                    game()
+                else:
+                    game_maquina()
+            elif comecar == 'N':
+                cont -= 1
+                print('Saindo...')
+            else:
+                print('Resposta inválida. Tente novamente!')
+
+    def game():
+        try:
+            jogada = 0
+            while ganhou() == 0:
+                jogador = jogada % 2 + 1
+                print(f'Vez do jogador {jogador}')
+                exibe()
+                jogada_linha = int(input('Linha: ')) - 1
+                jogada_coluna = int(input('Coluna: ')) - 1
+                if tabuleiro[jogada_linha][jogada_coluna] == 0:
+                    if jogador == 1:
+                        tabuleiro[jogada_linha][jogada_coluna] = 1
+                    else:
+                        tabuleiro[jogada_linha][jogada_coluna] = -1
+                else:
+                    print('Já foi ocupado!')
+                    jogada -= 1
+                if ganhou() == 1:
+                    print(f'Parabéns Jogador {jogador}! Você ganhou após {jogada + 1} rodadas.')
+                elif ganhou() == 2:
+                    print(f'Velha! Ótima partida, pessoal.')
+                jogada += 1
+        except IndexError:
+            print('Error')
+            print('Reiniciando...')
+            menu_inicio()
+
+    def ganhou():
+        # linhas
+        if tabuleiro[0][0] + tabuleiro[0][1] + tabuleiro[0][2] == 3 or tabuleiro[0][0] + tabuleiro[0][1] + tabuleiro[0][
+            2] == -3:
+            return 1
+        if tabuleiro[1][0] + tabuleiro[1][1] + tabuleiro[1][2] == 3 or tabuleiro[1][0] + tabuleiro[1][1] + tabuleiro[1][
+            2] == -3:
+            return 1
+        if tabuleiro[2][0] + tabuleiro[2][1] + tabuleiro[2][2] == 3 or tabuleiro[2][0] + tabuleiro[2][1] + tabuleiro[2][
+            2] == -3:
+            return 1
+        # colunas
+        if tabuleiro[0][0] + tabuleiro[1][0] + tabuleiro[2][0] == 3 or tabuleiro[0][0] + tabuleiro[1][0] + tabuleiro[2][
+            0] == -3:
+            return 1
+        if tabuleiro[0][1] + tabuleiro[1][1] + tabuleiro[2][1] == 3 or tabuleiro[0][1] + tabuleiro[1][1] + tabuleiro[2][
+            1] == -3:
+            return 1
+        if tabuleiro[0][2] + tabuleiro[1][2] + tabuleiro[2][2] == 3 or tabuleiro[0][2] + tabuleiro[1][2] + tabuleiro[2][
+            2] == -3:
+            return 1
+        # diagonais
+        if tabuleiro[0][0] + tabuleiro[1][1] + tabuleiro[2][2] == 3 or tabuleiro[0][0] + tabuleiro[1][1] + tabuleiro[2][
+            2] == -3:
+            return 1
+        if tabuleiro[0][2] + tabuleiro[1][1] + tabuleiro[2][0] == 3 or tabuleiro[0][2] + tabuleiro[1][1] + tabuleiro[2][
+            0] == -3:
+            return 1
+        # empate
+        cont = 0
+        for i in range(3):
+            for j in range(3):
+                if tabuleiro[i][j] != 0:
+                    cont += 1
+        if cont == 9:
+            return 2
+
+        return 0
+
+    def exibe():
+        for i in range(3):
+            for j in range(3):
+                if tabuleiro[i][j] == 0:
+                    print(' _ ', end=' ')
+                elif tabuleiro[i][j] == 1:
+                    print(' X ', end=' ')
+                elif tabuleiro[i][j] == -1:
+                    print(' O ', end=' ')
+            print()
+
+    tabuleiro = [[0, 0, 0],
+                 [0, 0, 0],
+                 [0, 0, 0]]
+
+    def game_maquina():
+        try:
+            jogada = 0
+            while ganhou() == 0:
+                jogador = jogada % 2 + 1
+                print(f'Vez do jogador {jogador}')
+                exibe()
+                if jogador == 2:
+                    print('Pensando.', end='')
+                    sleep(1)
+                    print('.', end='')
+                    sleep(1)
+                    print('.')
+                    jogada_linha = randint(1, 3) - 1
+                    jogada_coluna = randint(1, 3) - 1
+                else:
+                    jogada_linha = int(input('Linha: ')) - 1
+                    jogada_coluna = int(input('Coluna: ')) - 1
+                if tabuleiro[jogada_linha][jogada_coluna] == 0:
+                    if jogador == 1:
+                        tabuleiro[jogada_linha][jogada_coluna] = 1
+                    else:
+                        tabuleiro[jogada_linha][jogada_coluna] = -1
+                else:
+                    print('Já foi ocupado!')
+                    jogada -= 1
+                if ganhou() == 1:
+                    print(f'Parabéns Jogador {jogador}! Você ganhou após {jogada + 1} rodadas.')
+                elif ganhou() == 2:
+                    print(f'Velha! Ótima partida, pessoal.')
+                jogada += 1
+        except IndexError:
+            print('Error')
+            print('Reiniciando...')
+            menu_inicio()
+
+    '''O jogo tem um bug onde é impossível chamar as funções menu se uma partida for ganhada'''
+    menu_inicio()
+
+def qual_palavra():
+    titulo = 'QUAL A PALAVRA?'
+    print(f'{titulo:~^50}')
+    palavras = [
+        "abacaxi",
+        "banana",
+        "computador",
+        "elefante",
+        "girafa",
+        "internet",
+        "javascript",
+        "livro",
+        "morango",
+        "notebook",
+        "orelha",
+        "python",
+        "quadro",
+        "rato",
+        "sapato",
+        "teclado",
+        "uva",
+        "voar",
+        "xadrez",
+        "zebra"
+    ]
+    n = random.randint(0, len(palavras))
+    palavra = []
+    tentativa = []
+    tamanho = len(palavras[n])
+    print('_ ' * tamanho)
+    for i in range(len(palavras[n])):
+        palavra.append(palavras[n][i])
+        tentativa.append('_')
+
+    while True:
+        jogada = input('Coloque uma letra: ')
+        if jogada in palavra:
+            for j in range(palavra.count(jogada)):
+                lugar = palavra.index(jogada)
+                palavra[lugar], tentativa[lugar] = tentativa[lugar], palavra[lugar]
+        for i in tentativa:
+            print(i, end=' ')
+        print()
+        if palavra.count('_') == tamanho:
+            break
+
+def jogo_da_memoria():
+    import time
+    import random
+
+
+    lista_palavras_1 = ['Amarelo', 'Rosa', 'Verde', 'Preto', 'Vermelho', 'Roxo', 'Azul']
+    lista_palavras_2 = ['Gato', 'Cachorro', 'Guaxinim', 'Cobra', 'Baleia', 'Peixe', 'Lobo']
+    lista_final_1 = []
+    lista_final_2 = []
+
+    print('Bem Vindo ao Jogo da Mémoria Rápida!')
+    print('Jogar = 1 Como Jogar = 2')
+    resposta = str(input())
+
+    while True:
+        if resposta == '1':
+
+            print('Escolha a dificuldade:\n1 = Fácil: 15 segundos para memorizar / 4 rodadas')
+            print('2 = Normal: 10 segundos para memorizar / 4 rodadas')
+            print('3 = Difícil: 5 segundos para memorizar / 4 rodadas')
+            dificuldade = str(input())
+
+            if dificuldade == '1':
+
+                lista_palavras_1 = ['Amarelo', 'Rosa', 'Verde', 'Preto', 'Vermelho', 'Roxo', 'Azul']
+                lista_palavras_2 = ['Gato', 'Cachorro', 'Guaxinim', 'Cobra', 'Baleia', 'Peixe', 'Lobo']
+                lista_final_1 = []
+                lista_final_2 = []
+
+                for i in range(0, 4):
+                    sorteado_1 = random.choice(lista_palavras_1)
+                    lista_palavras_1.remove(sorteado_1)
+                    lista_final_1.append(sorteado_1)
+
+                    sorteado_2 = random.choice(lista_palavras_2)
+                    lista_palavras_2.remove(sorteado_2)
+                    lista_final_2.append(sorteado_2)
+
+                    print(f'{sorteado_1.ljust(10)}- {sorteado_2.rjust(10)}')
+
+                print('')
+                print('O jogo começará em 15 segundos! Memorize!')
+                time.sleep(12)
+                print('3...')
+                time.sleep(1)
+                print('2...')
+                time.sleep(1)
+                print('1...')
+                print("\n" * 60)
+                print('Vamos lá!!!!')
+                print('')
+                print(f'{lista_final_1[0]}')
+                r0 = str(input())
+                print('')
+                if r0 == lista_final_2[0]:
+                    print('Próxima!')
+                    print('')
+                    print(f'{lista_final_1[1]}')
+                    r1 = str(input())
+                    if r1 == lista_final_2[1]:
+                        print('Próxima!')
+                        print('')
+                        print(f'{lista_final_1[2]}')
+                        r2 = str(input())
+                        print('')
+                        if r2 == lista_final_2[2]:
+                            print('Próxima!')
+                            print('')
+                            print(f'{lista_final_1[3]}')
+                            r3 = str(input())
+                            print('')
+                            if r3 == lista_final_2[3]:
+                                print('Você Venceu!!!! Parabéns')
+                                print('Jogar Novamente = 1 Voltar para o Menu = Presione qualquer tecla')
+                                resposta = str(input())
+                            else:
+                                print('Você Perdeu! E logo na última, que pena')
+                                print('Jogar Novamente = 1 Voltar para o Menu = Presione qualquer tecla')
+                                resposta = str(input())
+                        else:
+                            print('Você Errou!')
+                            print('Tentar Novamente = 1 Voltar para o Menu = Presione qualquer tecla')
+                            resposta = str(input())
+                    else:
+                        print('Você Errou!')
+                        print('Tentar Novamente = 1 Voltar para o Menu = Presione qualquer tecla')
+                        resposta = str(input())
+                else:
+                    print('Você Errou!')
+                    print('Tentar Novamente = 1 Voltar para o Menu = Presione qualquer tecla')
+                    resposta = str(input())
+
+                lista_palavras_1 = ['Amarelo', 'Rosa', 'Verde', 'Preto', 'Vermelho', 'Roxo', 'Azul']
+                lista_palavras_2 = ['Gato', 'Cachorro', 'Guaxinim', 'Cobra', 'Baleia', 'Peixe', 'Lobo']
+                lista_final_1 = []
+                lista_final_2 = []
+
+            elif dificuldade == '2':
+                lista_palavras_1 = ['Amarelo', 'Rosa', 'Verde', 'Preto', 'Vermelho', 'Roxo', 'Azul']
+                lista_palavras_2 = ['Gato', 'Cachorro', 'Guaxinim', 'Cobra', 'Baleia', 'Peixe', 'Lobo']
+                lista_final_1 = []
+                lista_final_2 = []
+
+                for i in range(0, 4):
+                    sorteado_1 = random.choice(lista_palavras_1)
+                    lista_palavras_1.remove(sorteado_1)
+                    lista_final_1.append(sorteado_1)
+
+                    sorteado_2 = random.choice(lista_palavras_2)
+                    lista_palavras_2.remove(sorteado_2)
+                    lista_final_2.append(sorteado_2)
+
+                    print(f'{sorteado_1.ljust(10)}- {sorteado_2.rjust(10)}')
+
+                print('')
+                print('O jogo começará em 10 segundos! Memorize!')
+                time.sleep(7)
+                print('3...')
+                time.sleep(1)
+                print('2...')
+                time.sleep(1)
+                print('1...')
+                print("\n" * 60)
+                print('Vamos lá!!!!')
+                print('')
+                print(f'{lista_final_1[0]}')
+                r0 = str(input())
+                print('')
+                if r0 == lista_final_2[0]:
+                    print('Próxima!')
+                    print('')
+                    print(f'{lista_final_1[1]}')
+                    r1 = str(input())
+                    if r1 == lista_final_2[1]:
+                        print('Próxima!')
+                        print('')
+                        print(f'{lista_final_1[2]}')
+                        r2 = str(input())
+                        print('')
+                        if r2 == lista_final_2[2]:
+                            print('Próxima!')
+                            print('')
+                            print(f'{lista_final_1[3]}')
+                            r3 = str(input())
+                            print
